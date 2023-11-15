@@ -41,6 +41,7 @@ function Homepage() {
     const [km, setKm] = useState();
     const [motor, setMotor] = useState('');
     const [cambio, setCambio] = useState('');
+    const [cambioCad, setCambioCad] = useState('');
     const [preco, setPreco] = useState('');
     const [foto, setFoto] = useState('');
     const [fotoFile, setFotoFile] = useState([]);
@@ -86,6 +87,9 @@ function Homepage() {
     const registerCarro = async () => {
         const link = `http://54.208.196.225:5000/registercarro?token=${Cookies.get('token')}`
         const linkFiles = `http://54.208.196.225:5000/uploadfile?token=${Cookies.get('token')}`
+        if (cambioCad == '') {
+            setCambioCad('Automático');
+        }
         try {
             setLoading(true);
             let novaFoto = foto;
@@ -119,7 +123,7 @@ function Homepage() {
                     ano: `${ano}`,
                     km: `${km}`,
                     motor: `${motor}`,
-                    cambio: `${cambio}`,
+                    cambio: `${cambioCad}`,
                     preco: `${preco}`,
                     foto: `${novaFoto}`,
                     dono_id: Cookies.get('user')
@@ -566,7 +570,7 @@ function Homepage() {
                                 <styles.SelectInputCarro
                                     placeholder="Digite o tipo de câmbio do seu carro"
                                     id="editarCambioCad"
-                                    onChange={(e) => setCambio(e.target.value)}
+                                    onChange={(e) => setCambioCad(e.target.value)}
                                 >
                                     <option value="Automático">Automático</option>
                                     <option value="Manual">Manual</option>
