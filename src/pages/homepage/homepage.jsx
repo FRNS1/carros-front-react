@@ -87,8 +87,8 @@ function Homepage() {
     const registerCarro = async () => {
         const link = `http://54.208.196.225:5000/registercarro?token=${Cookies.get('token')}`
         const linkFiles = `http://54.208.196.225:5000/uploadfile?token=${Cookies.get('token')}`
-        if (cambioCad == '') {
-            console.log("Cambio vazio")
+        if (cambioCad === '') {
+            console.log("Cambio vazio");
             setCambioCad('Automático');
         }
         try {
