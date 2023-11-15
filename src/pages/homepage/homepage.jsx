@@ -90,6 +90,7 @@ function Homepage() {
         if (cambioCad === '') {
             console.log("Cambio vazio");
             await setCambioCad('Automático');
+            console.log(cambioCad);
         }
         try {
             setLoading(true);
