@@ -89,7 +89,7 @@ function Homepage() {
         const linkFiles = `http://54.208.196.225:5000/uploadfile?token=${Cookies.get('token')}`
         if (cambioCad === '') {
             console.log("Cambio vazio");
-            setCambioCad('Automático');
+            await setCambioCad('Automático');
         }
         try {
             setLoading(true);
