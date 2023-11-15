@@ -54,6 +54,10 @@ function Homepage() {
     // Fim
 
     // Funções
+    // mudança cambio no cadastro
+    const handleCambioCadChange = async () => {
+        await setCambioCad('Automático');
+    }
     // Cadastro de usuário
     const registerUser = async () => {
         const link = "http://54.208.196.225:5000/users/registeruser";
@@ -89,7 +93,7 @@ function Homepage() {
         const linkFiles = `http://54.208.196.225:5000/uploadfile?token=${Cookies.get('token')}`
         if (cambioCad === '') {
             console.log("Cambio vazio");
-            await setCambioCad('Automático');
+            await handleCambioCadChange();
             console.log(cambioCad);
         }
         try {
