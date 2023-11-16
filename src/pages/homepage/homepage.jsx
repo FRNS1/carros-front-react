@@ -41,7 +41,7 @@ function Homepage() {
     const [km, setKm] = useState();
     const [motor, setMotor] = useState('');
     const [cambio, setCambio] = useState('');
-    const [cambioCad, setCambioCad] = useState('');
+    const [cambioCad, setCambioCad] = useState('Automático');
     const [preco, setPreco] = useState('');
     const [foto, setFoto] = useState('');
     const [fotoFile, setFotoFile] = useState([]);
@@ -54,10 +54,6 @@ function Homepage() {
     // Fim
 
     // Funções
-    // mudança cambio no cadastro
-    const handleCambioCadChange = async () => {
-        await setCambioCad('Automático');
-    }
     // Cadastro de usuário
     const registerUser = async () => {
         const link = "http://54.208.196.225:5000/users/registeruser";
@@ -91,11 +87,6 @@ function Homepage() {
     const registerCarro = async () => {
         const link = `http://54.208.196.225:5000/registercarro?token=${Cookies.get('token')}`
         const linkFiles = `http://54.208.196.225:5000/uploadfile?token=${Cookies.get('token')}`
-        if (cambioCad === '') {
-            console.log("Cambio vazio");
-            await handleCambioCadChange();
-            console.log(cambioCad);
-        }
         try {
             setLoading(true);
             let novaFoto = foto;
